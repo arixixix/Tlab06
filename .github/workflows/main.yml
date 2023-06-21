@@ -18,7 +18,7 @@ jobs:
       id: create_release
       uses: actions/create-release@v2
       env :
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB1_TOKEN }}
       with:
           tag_name: ${{ github.ref }}
           release_name: Release ${{ github.ref }}
@@ -45,7 +45,7 @@ jobs:
     - name: ZIP_TO_RELEASE 
       uses: actions/upload-release-asset@v2
       env :
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB1_TOKEN }}
       with: 
        upload_url: ${{ needs.Release.outputs.upload_url }}
        asset_path: ./build/solver-0.0.0-Linux.zip
@@ -55,7 +55,7 @@ jobs:
     - name: TGZ_TO_RELEASE
       uses: actions/upload-release-asset@v2
       env :
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB1_TOKEN }}
       with: 
        upload_url: ${{ needs.Release.outputs.upload_url }}
        asset_path: ./build/solver-0.0.0-Linux.tar.gz
@@ -83,7 +83,7 @@ jobs:
     - name: DEB_TO_REALESE
       uses: actions/upload-release-asset@v2
       env :
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB1_TOKEN }}
       with: 
        upload_url: ${{ needs.Release.outputs.upload_url }}
        asset_path: ./build/solver-0.0.0-Linux.deb
@@ -94,7 +94,7 @@ jobs:
     - name: RPM_TO_REALESE
       uses: actions/upload-release-asset@v2
       env :
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB1_TOKEN }}
       with: 
        upload_url: ${{ needs.Release.outputs.upload_url }}
        asset_path: ./build/solver-0.0.0-Linux.rpm
@@ -118,7 +118,7 @@ jobs:
     - name: MSI_TO_REALESE
       uses: actions/upload-release-asset@v2
       env :
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB1_TOKEN }}
       with: 
        upload_url: ${{ needs.Release.outputs.upload_url }}
        asset_path: ./build/solver-0.0.0-win64.msi
@@ -141,7 +141,7 @@ jobs:
       - name: DMGTO_TO_REALESE
         uses: actions/upload-release-asset@v2
         env :
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB1_TOKEN }}
         with: 
           upload_url: ${{ needs.Release.outputs.upload_url }}
           asset_path: ./build/solver-0.0.0-Darwin.dmg
