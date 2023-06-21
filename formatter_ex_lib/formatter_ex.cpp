@@ -1,4 +1,3 @@
-
 #include "formatter_ex.h"
 
 #include "formatter.h"
