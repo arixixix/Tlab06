@@ -16,7 +16,7 @@ jobs:
     steps:        
     - name: Release
       id: create_release
-      uses: actions/create-release@v1
+      uses: actions/create-release@v2
       env :
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
@@ -32,7 +32,7 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-    - uses: actions/checkout@v1
+    - uses: actions/checkout@v2
     - name: Archive
       run : |
         mkdir build_ && cd build_
@@ -43,7 +43,7 @@ jobs:
         
         
     - name: ZIP_TO_RELEASE 
-      uses: actions/upload-release-asset@v1
+      uses: actions/upload-release-asset@v2
       env :
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with: 
@@ -53,7 +53,7 @@ jobs:
        asset_content_type: files/zip   
         
     - name: TGZ_TO_RELEASE
-      uses: actions/upload-release-asset@v1
+      uses: actions/upload-release-asset@v2
       env :
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with: 
@@ -67,7 +67,7 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-    - uses: actions/checkout@v1
+    - uses: actions/checkout@v2
     - name: inst rpm
       run : |
         sudo apt-get install rpm
@@ -81,7 +81,7 @@ jobs:
         cpack -G RPM
         
     - name: DEB_TO_REALESE
-      uses: actions/upload-release-asset@v1
+      uses: actions/upload-release-asset@v2
       env :
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with: 
@@ -92,7 +92,7 @@ jobs:
        
        
     - name: RPM_TO_REALESE
-      uses: actions/upload-release-asset@v1
+      uses: actions/upload-release-asset@v2
       env :
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with: 
@@ -107,7 +107,7 @@ jobs:
     runs-on: windows-latest
     
     steps:
-    - uses: actions/checkout@v1
+    - uses: actions/checkout@v2
     - name: Binary_File
       run : |
         mkdir build_ && cd build_
@@ -116,7 +116,7 @@ jobs:
         cpack -C CPackConfig.cmake -G WIX
         
     - name: MSI_TO_REALESE
-      uses: actions/upload-release-asset@v1
+      uses: actions/upload-release-asset@v2
       env :
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with: 
@@ -130,7 +130,7 @@ jobs:
     runs-on: macos-latest
     
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v2
       - name: Build binary files
         run : |
           mkdir build_ && cd build_
@@ -139,7 +139,7 @@ jobs:
           cpack -G DragNDrop
           
       - name: DMGTO_TO_REALESE
-        uses: actions/upload-release-asset@v1
+        uses: actions/upload-release-asset@v2
         env :
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with: 
