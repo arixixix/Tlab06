@@ -75,4 +75,4 @@ jobs:
         shell: bash
         run: |
           cd build2/solver_application
-          ./solve 1 1 1
+          ./equation 1 1 1
