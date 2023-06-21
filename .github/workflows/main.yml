@@ -3,7 +3,7 @@ name: Archive_Create
 on:
   push:
       branches: 
-      - main
+      - master
       
 jobs:
 
